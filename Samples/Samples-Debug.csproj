@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Samples</AssemblyName>
+        <RootNamespace>Samples</RootNamespace>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Humanizer" Version="2.8.11" />
+        <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
+        <PackageReference Include="ReactiveUI.Fody" Version="11.4.1" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+        <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+        <PackageReference Include="Xamarin.Forms.Maps" Version="4.6.0.800" />
+        <PackageReference Include="XF.Material" Version="1.6.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\shiny\src\Shiny.Beacons\Shiny.Beacons.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.BluetoothLE\Shiny.BluetoothLE.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Core\Shiny.Core.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Integrations.Sqlite\Shiny.Integrations.Sqlite.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Locations.Sync\Shiny.Locations.Sync.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Locations\Shiny.Locations.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Logging.AppCenter\Shiny.Logging.AppCenter.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Net.Http\Shiny.Net.Http.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Nfc\Shiny.Nfc.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Notifications\Shiny.Notifications.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Push\Shiny.Push.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Sensors\Shiny.Sensors.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.SpeechRecognition\Shiny.SpeechRecognition.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Vpn\Shiny.Vpn.csproj" />
+        <ProjectReference Include="..\Samples.SqliteGenerator\Samples.SqliteGenerator.csproj" />
+        <ProjectReference Include="..\..\shiny\src\Shiny.Push.AzureNotificationHubs\Shiny.Push.AzureNotificationHubs.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\fa-brands-400.ttf" />
+        <EmbeddedResource Include="Resources\fa-regular-400.ttf" />
+        <EmbeddedResource Include="Resources\fa-solid-900.ttf" />
+        <EmbeddedResource Include="Resources\MaterialIcons-Regular.ttf" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Vpn\MainPage.xaml">
+        <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      </EmbeddedResource>
+    </ItemGroup>
+
+</Project>

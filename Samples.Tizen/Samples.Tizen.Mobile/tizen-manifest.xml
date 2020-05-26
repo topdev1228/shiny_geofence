@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.shiny.samples" version="1.0.0" api-version="5" xmlns="http://tizen.org/ns/packages">
+    <author email="allan.ritchie@gmail.com" href="https://shinylib.net">Allan Ritchie</author>
+    <profile name="mobile" />
+    <ui-application appid="com.shiny.samples" exec="Samples.Tizen.Mobile.dll" multiple="false" nodisplay="false" taskmanage="true" type="dotnet" launch_mode="single">
+        <label>Shiny</label>
+        <icon>logo.png</icon>
+        <metadata key="http://tizen.org/metadata/prefer_dotnet_aot" value="true" />
+        <splash-screens />
+    </ui-application>
+    <shortcut-list />
+    <privileges>
+        <privilege>http://tizen.org/privilege/bluetooth</privilege>
+        <privilege>http://tizen.org/privilege/download</privilege>
+        <privilege>http://tizen.org/privilege/externalstorage</privilege>
+        <privilege>http://tizen.org/privilege/externalstorage.appdata</privilege>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+        <privilege>http://tizen.org/privilege/location</privilege>
+        <privilege>http://tizen.org/privilege/location.coarse</privilege>
+        <privilege>http://tizen.org/privilege/location.enable</privilege>
+        <privilege>http://tizen.org/privilege/network.get</privilege>
+        <privilege>http://tizen.org/privilege/notification</privilege>
+    </privileges>
+    <provides-appdefined-privileges />
+    <feature name="http://tizen.org/feature/battery">true</feature>
+    <feature name="http://tizen.org/feature/location.geofence">true</feature>
+    <feature name="http://tizen.org/feature/location">true</feature>
+    <feature name="http://tizen.org/feature/location.fused">true</feature>
+    <feature name="http://tizen.org/feature/microphone">true</feature>
+    <feature name="http://tizen.org/feature/location.gps">true</feature>
+    <feature name="http://tizen.org/feature/maps">true</feature>
+    <feature name="http://tizen.org/feature/sensor.accelerometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.activity_recognition">true</feature>
+    <feature name="http://tizen.org/feature/sensor.barometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.gyroscope">true</feature>
+    <feature name="http://tizen.org/feature/sensor.heart_rate_monitor">true</feature>
+    <feature name="http://tizen.org/feature/sensor.humidity">true</feature>
+    <feature name="http://tizen.org/feature/speech.recognition">true</feature>
+    <feature name="http://tizen.org/feature/sensor.magnetometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.pedometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.photometer">true</feature>
+    <feature name="http://tizen.org/feature/sensor.temperature">true</feature>
+    <feature name="http://tizen.org/feature/download">true</feature>
+    <feature name="http://tizen.org/feature/network.bluetooth">true</feature>
+    <feature name="http://tizen.org/feature/network.bluetooth.le">true</feature>
+</manifest>

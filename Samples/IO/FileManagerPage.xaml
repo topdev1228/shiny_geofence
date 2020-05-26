@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infrastructure="clr-namespace:Samples.Infrastructure"
+             x:Class="Samples.IO.FileManagerPage"
+             Title="File Manager">
+
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Button Text="Back Directory"
+                    Command="{Binding Back}"
+                    IsVisible="{Binding ShowBack}"
+                    HorizontalOptions="FillAndExpand"
+                    Grid.Row="0" />
+
+            <Label Text="No Entries Found"
+                   IsVisible="{Binding HasEntries, Converter={StaticResource Not}}"
+                   HorizontalOptions="FillAndExpand"
+                   VerticalOptions="FillAndExpand"
+                   Grid.Row="1" />
+
+            <ListView ItemsSource="{Binding Entries}"
+                      IsVisible="{Binding HasEntries}"
+                      Grid.Row="1">
+                <ListView.Behaviors>
+                    <infrastructure:ItemTappedCommandBehavior Command="{Binding Select}" />
+                </ListView.Behaviors>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Size}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

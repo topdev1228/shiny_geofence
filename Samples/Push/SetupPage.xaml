@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:push="clr-namespace:Samples.Push" xmlns:ui="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+             mc:Ignorable="d"
+             x:DataType="push:SetupViewModel"
+             x:Class="Samples.Push.SetupPage"
+             Title="Setup">
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="{Binding AccessStatus, StringFormat='Status: {0}'}"
+                    Command="{Binding RequestAccess}" />
+
+            <Button Text="UnRegister"
+                    Command="{Binding UnRegister}" />
+
+            <Label Text="{Binding RegToken, StringFormat='Registration Token: {0}'}" />
+            <Label Text="{Binding RegDate, StringFormat='Registration Date: {0}'}" />
+            <Label Text="{Binding ExpiryDate, StringFormat='Expiry Date: {0}'}" />
+
+            <StackLayout IsVisible="{Binding IsTagsSupported}">
+                <ui:MaterialTextField Text="{Binding Tag}" 
+                                      Placeholder="Tag"
+                                      ReturnCommand="{Binding UpdateTag}"
+                                      ReturnType="Done" />
+
+                <Button Text="Update Tag"
+                        Command="{Binding UpdateTag}" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

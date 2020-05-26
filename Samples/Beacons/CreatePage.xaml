@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Samples.Beacons.CreatePage"
+             Style="{StaticResource ContentPage}"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Create" Command="{Binding Create}" />
+        <!--<ToolbarItem Command="{Binding Create}">
+            <ToolbarItem.IconImageSource>
+                <FontImageSource Glyph="\\ue3ba"
+                                 FontFamily="{StaticResource MaterialIcons}" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>-->
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <TableView Intent="Form">
+            <TableSection Title="Filter">
+                <EntryCell Label="Identifier"
+                           Text="{Binding Identifier}" />
+
+                <EntryCell Label="Uuid"
+                           Text="{Binding Uuid}"
+                           Keyboard="Text" />
+
+                <EntryCell Label="Major"
+                           Text="{Binding Major}"
+                           Keyboard="Numeric" />
+
+                <EntryCell Label="Minor"
+                           Text="{Binding Minor}"
+                           Keyboard="Numeric"
+                           IsEnabled="{Binding IsMajorSet}" />
+            </TableSection>
+
+            <TableSection Title="Notifications">
+                <SwitchCell Text="Entry"
+                            On="{Binding NotifyOnEntry}"
+                            IsEnabled="{Binding ForMonitoring}" />
+
+                <SwitchCell Text="Exit"
+                            On="{Binding NotifyOnExit}"
+                            IsEnabled="{Binding ForMonitoring}" />
+            </TableSection>
+
+            <TableSection>
+                <TextCell Text="Estimote Defaults" Command="{Binding EstimoteDefaults}" />
+            </TableSection>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

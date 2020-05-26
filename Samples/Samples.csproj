@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <!--<Nullable>enable</Nullable>-->
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Humanizer" Version="2.8.11" />
+        <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
+        <PackageReference Include="ReactiveUI.Fody" Version="11.4.1" />
+        <PackageReference Include="Shiny.Beacons" Version="1.2.0.1630-beta" />
+        <PackageReference Include="Shiny.BluetoothLE" Version="1.2.0.1630-beta" />
+        <PackageReference Include="Shiny.Integrations.Sqlite" Version="1.2.0.1630-beta" />
+        <PackageReference Include="Shiny.Locations" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Locations.Sync" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Logging.AppCenter" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Net.Http" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Nfc" Version="1.2.0.1630-beta" />
+        <PackageReference Include="Shiny.Notifications" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Push" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Push.AzureNotificationHubs" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Sensors" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.SpeechRecognition" Version="1.2.0.1630" />
+        <PackageReference Include="Shiny.Vpn" Version="1.2.0.1630-beta" />
+        <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+        <PackageReference Include="Xamarin.Forms" Version="4.6.0.800" />
+        <PackageReference Include="Xamarin.Forms.Maps" Version="4.6.0.800" />
+        <PackageReference Include="XF.Material" Version="1.6.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Samples.SqliteGenerator\Samples.SqliteGenerator.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="Resources\fa-brands-400.ttf" />
+        <EmbeddedResource Include="Resources\fa-regular-400.ttf" />
+        <EmbeddedResource Include="Resources\fa-solid-900.ttf" />
+        <EmbeddedResource Include="Resources\MaterialIcons-Regular.ttf" />
+    </ItemGroup>
+</Project>

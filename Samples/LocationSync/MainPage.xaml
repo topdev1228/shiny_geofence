@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:locationsync="clr-namespace:Samples.LocationSync"
+             x:DataType="locationsync:MainViewModel"
+             x:Class="Samples.LocationSync.MainPage"
+             Title="Location Sync">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Run"
+                     Command="{Binding ForceRun}" />
+        
+        <ToolbarItem Text="Clear"
+                     Command="{Binding Clear}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsBusy}"
+                     Command="{Binding Load}">
+            <CollectionView ItemsSource="{Binding Events}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="locationsync:ItemViewModel">
+                        <StackLayout>
+                            <Label Text="{Binding Description}" />
+                            <Label Text="{Binding Details}" />
+                            <Label Text="{Binding DateCreated, StringFormat='Created: {0}'}" />
+                            <BoxView Style="{StaticResource HR}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </ContentPage.Content>
+</ContentPage>

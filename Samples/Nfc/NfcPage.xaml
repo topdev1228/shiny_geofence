@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:nfc="clr-namespace:Samples.Nfc"
+             xmlns:nfc1="clr-namespace:Shiny.Nfc;assembly=Shiny.Nfc"
+             x:DataType="nfc:NfcViewModel"
+             mc:Ignorable="d"
+             x:Class="Samples.Nfc.NfcPage"
+             Title="NFC">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Clear" Command="{Binding Clear}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="{Binding Access, StringFormat='Check Access: {0}'}" />
+            <Button Text="Start Listening" Command="{Binding Listen}">
+                <Button.Triggers>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsListening}" Value="True">
+                        <Setter Property="Text" Value="Stop Listening" />
+                    </DataTrigger>
+                    <DataTrigger TargetType="Button" Binding="{Binding IsListening}" Value="False">
+                        <Setter Property="Text" Value="Start Listening" />
+                    </DataTrigger>
+                </Button.Triggers>
+            </Button>
+            <CollectionView ItemsSource="{Binding NDefRecords}"
+                            VerticalOptions="FillAndExpand"
+                            HorizontalOptions="FillAndExpand">
+                <CollectionView.EmptyView>
+                    <Label Text="No Records Found" />
+                </CollectionView.EmptyView>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="nfc1:NDefRecord">
+                        <StackLayout>
+                            <Label Text="{Binding Payload}" />
+                            <Label Text="{Binding PayloadType}" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
